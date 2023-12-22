@@ -1,0 +1,14 @@
+Things to know in Html 
+
+html structure 
+html title , metatags 
+html headings paragraph line break 
+links 
+images 
+tables
+html form 
+id and classes 
+style tags 
+div and span 
+html semantic elements 
+html enities 

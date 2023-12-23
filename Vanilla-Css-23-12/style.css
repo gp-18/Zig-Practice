@@ -1,0 +1,225 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: red;
+}
+
+/* DOM stands for document object model. When a page is loaded, the browser creates a DOM of the page which is constructed as a tree of objects. */
+/* When an HTML element is given an id, it serves as a unique identifier for that element.
+
+On the other hand, when an HTML element is given a class, it now belongs to that class. More than one element can belong to a single class but every element must have a unique id (if assigned).
+
+We can add multiple classes to an element like this, */
+
+/* There are 3 ways to add CSS to HTML:
+
+<style> tag : Adding <style> … </style> to HTML
+Inline CSS : Adding CSS using style attribute
+External CSS : Adding a stylesheet(.css) to HTML using <link> tag */
+p {
+  font-size: 20px;
+  line-height: 40px;
+  word-spacing: 10px;
+  letter-spacing: 8px;
+  font-weight: 700;
+}
+
+/* Id Selector
+It is used to select an element with a given id */
+
+#first {
+  color: white;
+  background: black;
+}
+
+/* Class Selector
+It is used to select an element with a given class */
+
+.red {
+  background: red;
+}
+
+/* /We can group selectors like this: */
+h1,
+h2,
+h3,
+div {
+  color: blue; /*h1,h2,h3 and div will be blue*/
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.div3 {
+  background: red url(‘img.png’) no-repeat fixed right top;
+}
+
+#box {
+  height: 70px;
+  width: 70px;
+}
+
+.box {
+  margin: 3px; /* Sets top, bottom, left & right values*/
+  padding: 4px; /* Sets top, bottom, left & right values*/
+}
+
+.boxMain {
+  margin: 7px 0px 2px 11px; /*top, right, bottom, left*/
+}
+
+.boxLast {
+  margin: 7px 3px; /*(top & bottom) (left & right)*/
+}
+
+/* set border: 2px solid red; */
+
+.div1 {
+  box-sizing: border-box;
+}
+
+p.uppercase {
+  text-transform: uppercase;
+}
+
+.Small {
+  line-height: 0.7;
+}
+
+p {
+  font-family: “Times new Roman”, monospace;
+}
+
+ul {
+  list-style: square inside url(‘img-1.jpg’);
+}
+
+.container {
+  display: flex; /*Initialize a flexbox*/
+}
+
+/* media queries */
+@media only screen and (max-width: 800px) {
+  body {
+    background: red;
+  }
+}
+
+/* 
+CSS Animations
+
+Used to animate CSS properties with more control.
+
+We can use the @keyframes rule to change the animation from a given style to a new style. */
+
+@keyframes harry {
+  from {
+    width: 20px;
+  } /*Can change multiple properties*/
+  to {
+    width: 31px;
+  }
+}
+
+@keyframes harry {
+  0% {
+    width: 20px;
+  }
+  50% {
+    width: 80px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+
+/* 
+Animation Shorthand
+All the animation properties from 1-6 can be applied like this: */
+/* animation: harry 65 linear 15 infinite reverse; */
+/* 
+
+Transforms are used to rotate, move, skew or scale elements. They are used to create a 3-D effect.
+The transform property
+Used to apply a 2-D or 3-D transformation to an element
+The transform-origin property
+Allows to change the position of transformed elements
+2D transforms – can change x & y-axis
+3D transforms – can change Z-axis as well
+CSS 2D transform methods
+You can use the following 2-D transforms in CSS:
+translate()
+rotate()
+scaleX()
+scaleY()
+skew()
+matrix()
+scale()
+
+CSS 3D transform methods
+
+rotateX()
+rotateY()
+rotateZ()
+ 
+
+CSS Transitions
+Used to change property values smoothly, over a given duration.
+The transition property
+The transition property is used to add a transition in CSS.
+Following are the properties used for CSS transition:
+transition-property: The property you want to transition
+transition-duration: Time for which you want the transition to apply
+transition-timing-function: How you want the property to transition
+transition-delay: Specifies the delay for the transition
+All these properties can be set using a single shorthand property
+Syntax:
+transition: property duration timing-function delay;
+transition: width 35 ease-in 25;
+Transitioning multiple properties
+We can transition multiple properties as follows:
+transition: opacity 15 ease-out 15, transform 25 ease-in; */
+
+/* gird  */
+.container {
+  display: grid;
+}
+/* All direct children automatically become grid items
+The grid-column-gap property
+Used to adjust the space between the columns of a CSS grid
+The grid-row-gap property
+Used to adjust the space between the rows of a CSS grid
+The grid-gap property
+Shorthand property for grid-row-gap & grid-column-gap */
+
+.container {
+  display: grid;
+  grid-gap: 40px 100px; /*40px for row and 100px for column*/
+}
+/* 
+followingare the properties for grid container:
+ The grid-template-columns
+  property can be used to specify the width of columns  */
+.container {
+  display: grid;
+  grid-template-columns: 80px 120px auto;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 70px 150px;
+}
+/* The justify-content property is used to align the whole grid inside the container.
+The align-content property is used to vertically align the whole grid inside the container.
+Following are the properties for grid item: */
+
+
+  .grid-item {
+  grid-column: 1/5;
+}
+/* The grid-row property defines how many rows an item will span.
+We can make an item to start on column 1 and space 3 columns like this: */
+.item {
+  grid-column: 1 / span 3;
+}

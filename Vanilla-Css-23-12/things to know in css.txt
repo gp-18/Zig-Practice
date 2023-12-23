@@ -1,0 +1,40 @@
+basics of css 
+
+things to know in css : 
+
+types of css : inline internal external ;
+
+fonts ,fonts size by default : 16px ,line height , word spacing , letter spacing , font weight by default : 400 ;
+
+box-model : margin border padding content ; 
+all direction common , top-bottom left-right , top right bottom left ;
+when at the time of collasping the bigger value will be their ; 
+
+block elements : elements which takes all the width , inline elements : elements which takes only the content width they does not contain margin top and bottom it only contain left and right, using display properties it can be changed display : block , display : inline , display : inline-block ; 
+
+specificity :  _(inline - styling) , _ (id), _ (classes), _ (elements) 
+id , class , elements ;
+
+browser by default : * ;
+
+css inheritance : 
+
+box-sizing : border-box ; 
+
+pesudo classes : mainly used with the anchor link mainly 4 phases : link , visited , hover , active , there are other which are used with the forms , input: focus , required ; 
+
+:first-child : 
+
+:first-of-type: is that thing is first or not 
+
+:last-child : 
+
+:last-of-child :
+
+:nth-child() :
+
+:nth-of-child : 
+ 
+:root == html 
+
+pesudo-elements : it uses :: first-letter first-word and all  

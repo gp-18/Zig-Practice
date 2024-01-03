@@ -1,0 +1,127 @@
+what is php what is its use 
+wordpress vs laravel 
+xmapp 
+in c drive xampp folder htdocs 
+in chrome -> localhost/foldername 
+
+live server (error h ) ( need to solve ) ( auto update in chrome nhi ho raha h )
+
+
+1) outputs in php 
+echo 
+print
+print_r()
+var_dump()
+var_export()
+
+1 a) single line php in html <? = "hello_parth" ; ?>
+
+2) data type and varible
+- String - A string is a series of characters surrounded by quotes
+- Integer - Whole numbers
+- Float - Decimal numbers
+- Boolean - true or false
+- Array - An array is a special variable, which can hold more than one value
+- Object - A class
+- NULL - Empty variable
+- Resource - A special variable that holds a resource
+
+/* --------- Variable Rules --------- */
+
+- Variables must be prefixed with $
+- Variables must start with a letter or the underscore character
+- variables can't start with a number
+- Variables can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+- Variables are case-sensitive ($name and $NAME are two different variables)
+
+2 a ) const in php =  define('HOST' , 'ANY_NAME'); 
+      echo HOST ;
+
+3 ) arrays => 2 ways to create array
+a) associatve array => we can create our own index and value to it just like key value pair
+b) multidimensional array 
+c) decode from json
+
+4) operators ,if else , if else if else  , ternary operator and switch statement
+
+5) for loops , while loops , do while loops for each loops 
+
+6) functions 
+   variable functions 
+   arrow functions
+
+7) inbuilt arrrays functions 	
+   count 
+
+   add at last 
+   add at beginning 
+   add at last another way 
+	
+   remove from last 
+   remove from start 
+   remove at particular index 
+
+   chunk of the array 
+
+   concate of the array 
+
+   combine array (key & value ) 
+
+   keys of the array 
+	
+   flip the keys and values 
+ 	
+   range 
+ 
+   map 
+
+   filter 
+
+8) inbuilt functions used in strings 
+   
+    find the position of first occ 
+    find the position of last occ 
+    reverse the string 
+    convert the string to lower case 
+    convert the string to upper case 
+    string replace 
+    return the spefic part 
+    string start with 
+    string ends with 
+    role of printf
+
+9) superglobals 
+   Built in variables that are always available in all scopes
+   $GLOBALS - A superglobal variable that holds information about any variables in global    scope.
+  $_GET - Contains information about variables passed through a URL or a form.
+  $_POST -  Contains information about variables passed through a form.
+  $_COOKIE - Contains information about variables passed through a cookie.
+  $_SESSION - Contains information about variables passed through a session.
+  $_SERVER - Contains information about the server environment.
+  $_ENV - Contains information about the environment variables.
+  $_FILES -  Contains information about files uploaded to the script.
+  $_REQUEST - Contains information about variables passed through the form or URL.
+
+10) get and post in form 
+
+11) Filter Input => they are used so that the script cannot run on the chrome . when script run on the chrome it create problem so to overcome that we use filter_input(INPUT_GET/POST , nameOfVariable , FILTER_SANITIZE_SPECIAL_CHARS/EMAIL/NUMS);
+
+12) cookies => SETCOOKIE('value' , 'value acc to it ' , time() + 86400(this is the time for one day ) ) ; => when you want to unset then SETCOOKIE('value' , '(pass empty string here)',time() + 86400 ) ; 
+
+13) session (doubt) 
+
+14) file handling 
+    $handle = fopen(file name , 'mode of operation' ) ;
+    $contents = fread($handle , filesize($file)) ; 
+    fclose($handle) ; 
+    echo $contents ; 
+
+15) file upload (doubt) 
+    when you are using file upload in html form use enctype in form because without using    that the file upload will not work 
+
+16) error exception try catch and finally 
+
+17) oops concept class object oop 4 pillar 
+
+
+		

@@ -1,0 +1,19 @@
+php project 
+
+create html files
+ 
+convert html files into php files 
+
+use php include to include the header and footer 
+<?php include 'inc/header.php'; ?>
+<?php include 'inc/footer.php'; ?>
+
+use of database 
+search => http://localhost/phpmyadmin/
+
+create database => table inside it => go to user privilage => set id pass
+
+add database in php file 
+create folder config 
+define all properties of db 
+set connection 

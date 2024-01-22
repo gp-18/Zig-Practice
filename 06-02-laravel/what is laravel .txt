@@ -1,0 +1,218 @@
+what is laravel ?
+PHP framework. It provides web developers tools and resources for building modern PHP web applications. follows MVC architecture 
+
+What is Laravel framework used for?
+Laravel is PHP web application framework that is used for developing web applications and APIs. It provides a set of tools and features that make it easier for developers to build robust and scalable web applications quickly and efficiently.
+
+
+laravel uses composer to manage its dependencies .
+ 
+composer is dependency managemenet tool for php => composer manages the php libraries 
+
+install : 
+composer create-project-laravel/ laravel project-name ; 
+
+artisan : 
+command line interface included with laravel 
+pre defined commands to develop the app 
+
+installation of composer :
+download composer and install on device 
+to check install or not : in cmd => run composer  
+
+install laravel in xammp htdocs : 
+composer create-project --prefer-dist laravel/laravel project-name 
+
+to start php laravel project : 
+php artisan list 
+php artisan serve
+
+routes :
+// basic route 
+Route::get('/', "AppController@function-name");
+
+// route with parameter
+Route::get('/about/{paraname}', function () {
+    return "<h1>hello from about</h1>";
+});
+
+// route with optional parameter
+Route::get('/services/{service_name?}', function () {
+    return "<h1>hello from services</h1>";
+});
+
+// name route or reverse routing 
+Route::get('/contact', "AppController@function-name")->name('contact');
+
+
+MVC model view controller : 
+
+it represent architecture developer adopt when building applications. helps us in looking application structure and  how the data flow 
+
+MVC (Model View Controller) is a software design pattern that separates the application's data model, user interface, and control logic into three interconnected components. This separation of concerns makes it easier to manage complexity and maintainability of code in large applications.
+
+model = database ke related saare kaam karna 
+view = webpage p content display karna
+controller = logics ko leekhna 
+
+controller :
+
+create controller : 
+php artisan make:controller AppController
+
+to see wether the controller is created or not => app => http => App controller 
+
+blade : 
+lightweight engine comes with laravel combine complex php code to html code so that easily dynamic content can be shown 
+
+in view folder => fileName.blade.php
+
+<?php
+$greeting = "helloo parthhh";
+?>
+<h1>hello from about blade {{$greeting}}</h1>
+
+
+how to pass data from controller to view 
+
+the data is there in controller and you want to pass it into the view and need to show into the view then there are methods to do so : 
+
+method 1 ) compact method 
+
+in controller :
+$name = "parth gupta" ;
+return view("welcome",compact("name"));
+
+in view : welcome.blade.php
+<h1>name:{{$name}} </h1>
+
+2) using associative array
+
+in controller
+$name = "parth gupta";
+$phone = "9662044751";
+      
+return view('wecome', array(
+            'name' => $name,
+            'phone' => $phone
+        ));
+
+in view : welcome.blade.php
+<h1>name:{{$name}} </h1>
+
+3) using with method 
+in controller : 
+return view("welcome")->with("name", $name)->with("phone", $phone);
+
+in view : welcome.blade.php
+<h1>name:{{$name}} </h1>
+
+
+
+what is migration ? database schema ke saath saare operation karna 
+migration deals with the database laravel ke under se hi database table kasie create kaare database table ke saath kasie deal kaare uska schema aur sab kasie define kaaree uske liye hota h migration , 
+
+database => migration => by default 4 tables => create_user_table imp file
+
+to create new table => php artisan make:migration create_table_name_table
+
+to create column in the table => 
+$table->string("full_name (name of the column)", 100(length of the character) );
+$table->string("phone_number", 15);
+
+jitni table hogi utne migrations baanege
+
+connection database and table 
+env file => db_name = (write the db name you created in xmap) 
+
+php artisan migrate:rollback 
+php artisan migrate:reset
+php artisan migrate:fresh
+
+what is Eloquent ORM (object relation mapping ) and Query builder ? database ke saath crud operations kaarne ka methods , database operations perform karne ke 2 method which is the crud operaions 
+
+Eloquent ORM => to deal with these we have to create the model => php artisan make:model model_name => to see whether it is app -> model 
+
+haar ek model haar ek database ki table ko represent karte h => jitne table database m utne hi model 
+
+define everything in model and then go to controller because controller hi to model m se data lega aur aage view ko dega 
+
+code in AppController :
+
+        // insert operatiions in model option -1 
+        // $party = new Party;
+        // $party->full_name = "parth gupta";
+        // $party->phone_no = "1234567890";
+        // $party->save();
+
+        // insert - option -2 
+        // $param = array(
+        //     "full_name" => "abc",
+        //     "phone_no" => "1234567890"
+        // );
+
+        // party::create($param);
+
+        // select operations 
+        // select all operators 
+        // $parties = party::all();
+        // dd($parties);
+
+        // select one operation by id 
+        // $id = 1;
+        // $party = party::find($id);
+        // dd($party);
+
+        // select one record by another column /field 
+        // $party = Party::where("phone_no" ,"87678")->get();
+        // dd($party);
+
+        // update 
+        // $id = 1;
+        // $party = party::find($id);
+        // $party->full_name = "parth gupta";
+        // $party->save();
+
+        // delete 
+        // $id = 1;
+        // $party = party::find($id);
+        // $party->delete();
+
+what is the query builder ?
+powerful tool of laravel which is used to create and execute the query crud operations ke liye hi use hota h jo model se kiya same waahi query builder se bhi kar skte h 
+
+which one is better orm or query builder ?
+If you are developing a Laravel application and you need a simple and easy-to-use way to interact with the database, then Eloquent is a good choice. If you need to perform complex queries or if you need to use features that are not supported by Eloquent, then Query Builder is a good choice.
+
+to use query builder 
+use Illuminate\Support\Facades\DB ;
+
+ // query builder 
+        // insert 
+        // $param = array(
+        //     "full_name" => "parth gupta"
+        // );
+
+        // DB::table('parties')->insert($param);
+
+        // select 
+        // $party = DB::table("parties")->get();
+        // echo "<pre>"; 
+        // print_r($party);
+
+        // update
+        // $param = array(
+        //     "full_name" => "parth gupta"
+        // );
+
+        // DB::table('parties')
+        //     ->where('id', 6)
+        //     ->update($param);
+
+        // delete
+         // DB::table('parties')
+        //     ->where('id', 6)
+        //     ->delete();
+
+
+

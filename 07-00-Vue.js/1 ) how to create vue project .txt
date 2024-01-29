@@ -1,0 +1,122 @@
+1 ) how to create vue project ?
+create vite@latest
+project name
+select vue and then js 
+npm install 
+
+2 ) folder structure 
+
+3 ) api styles (coding styles) there are 2 different ways : 
+options api (style) => objects => data methods and mounted 
+composition api (style) => imported api functions 
+compostion api is way much better
+
+4 ) what is component ? 
+ui ko chhote chhote parts m break karna and then usko reuse karna kaahi p bhi 
+allow ui into independent and reusable pieces .
+
+5 ) what is vue component ?
+vue component means ke combination of js and html ka combination 
+
+6 ) what is single file component ? 
+ek hi file m jab styling css kaare html m structure ho and js m logic ho usko bolte h.
+FileName.vue 
+
+<script>JavaScript </script>
+<template> HTML </template>
+<style> css </style>
+
+example : 
+
+HelloWorld.vue 
+
+<script setup>
+const msg = "hello world " 
+</script>
+
+<template>
+<h1>{{msg}}</h1>
+</template>
+
+<style scoped>
+h1{font-size:2.6rem;}
+</style>
+
+7 ) register and use component 
+we need to register the component so that vue can know that where the component is located , so to do that there are 2 ways : 
+local => jo basically hum react m karte h 
+global => boht disadvantage hote h hum to bhaii local component hi use karegye jo hum react m karte the vaahi h component baano and then import kaaro 
+
+8 ) what is text interpolation 
+it is a form of data binding we can bind simple property key and js expression in our template using text interpolation .
+
+example : <h1> {{message}} </h1>
+
+8 ) attribute binding v-bind 
+script ki value attribute m kasie pass karegye vo h 
+agar html m attribute m use karneka ho to kasie use karegye 
+example :<div v-bind:id="id1"></div> or <div :id="id1"></div>
+
+with the help of v-bind we can create our own attribute 
+example : <a v-bind:[attributeName]="url">visit</a>
+
+9 ) Reactivity 
+allow us to adjust to changes in a declarative manner 
+
+reactive and ref 
+
+reactive => we can create a reactive object or array with the reactive function 
+it return a proxy of the original object , which is not equal to the original object 
+it does not work on primitive datatype works only on array and object
+
+let suppose 
+a = 10 and b = 20 and there sum is 30 agar b ki value change hui to sum ki bhi value change hogi to reactivity ka kyaa kaam h ki vo agar koi value change ho to sum ki value bhi change honi chhiaye ye reactivity ka kaam h 
+
+deep reactivity : 
+means ke nested reactive reactive ke under reactive 
+
+
+ref()
+ref saari values ko support karta h (react m useState ki thara par syntax pura alag h ) 
+.value use hota h ismai 
+
+10 ) reactivity utilities 
+function which are going to help us in reactivity 
+
+isRef() = it is used to check if a value is ref object 
+isREactive() = same as is ref
+isProxy() = it is used to check if an object is proxy created by reactive() , readonly()
+unref() = it return the inner value if the argument is a ref otherwise return the argument itself 
+toref() = used to create a ref for a property on a source reactive object 
+
+11 ) method and computed property
+method means ke functions 
+computed property = it takes a getter functions and return a readonly reactive ref object 
+computed property agar same value h to baar baar evalute nhi karta bus jo previously cache store m value thi vaahi dedeta h baaki method same value ho to bhi baar baar evalute karta h so isslye computed property performance badhata h . 
+
+12 ) class and style binding 
+styling ke liye kaam h atta h 
+vbind ko support karta h 
+
+13 ) global and scoped css 
+global css jo haar jagha work karta h aur scoped css usi file h work karta h 
+
+14 ) conditional rendering 
+v-if , v-else , v-else-if , v-if on <template> , v-show 
+v- if and v-show work same but v-show display none kar deta h jabki v-if direct remove hi kar deta h to if you are dealing with the toggle button type then use v-show
+
+15 ) list rendering using v-for (fr=or loop)
+const students = ref(["rahul" , "sonam" , "rohit"])
+
+<h1 v-for="student in students">{{student }}</h1>
+or
+<h1 v-for="(student,index) in students">{{index}} {{student }}</h1>
+or
+<h1 v-for="(student,index) in students" :key="index">{{index}} {{student }}</h1>
+it is good practice if we use key 
+
+
+
+
+
+ 

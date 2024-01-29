@@ -1,0 +1,75 @@
+laravel api
+
+composer create-project laravel/laravel laravel-api-tutorial 
+
+php artisan serve
+
+
+create database in xampp and add in env file (database name )
+check for database in database migration (create-user-table)
+
+
+topics covered : 
+
+what is an api ?
+types of an api ( RESTful , GraphQL , SOTP , and many more ) 
+creating laravel project 
+api testing tool - postman 
+laravel apis( crud operations ) 
+error handling
+authentication & security 
+
+what is an api ?
+application programming interface ek set of rules aur protocols hai jo ek software application dusri application ke saath communicate karne ke liye use hota h . api ek bridge ki thara kaam karta hai jo do alg applications ke beech mein data aur functionality exchange karne mein help karta h . frontend h aur backend h vo dono ko ek saath communicate karne ka h to vo dono communicate kasie kaaregye api ki help se karegye na 
+
+why do we use api ?
+data sharing 
+third-party integration 
+modularity : code maintainability aur scalable karne ke liye 
+platform independence : ek platform par develop ki gayi application ko doosre platform par bhi use kar skte h 
+
+types of api 
+
+restful api : representational state transfer  ek architecture style hai jo http protocol par based h simple aur scalable hota h  restful api http verb ( GET , POST , PUT , DELETE ) ka use karte h aur resource ko url ke zariye represent karta h . 
+
+GraphQL Api : ek query language hai jo client ke requirements ke hisab se data retrive karne ke liye use hota h . client khud decide karta h usko kounsa data chhaiye 
+
+SOAP api : simple object access protocol , ek protocol hai jo xml format mein data exchange karta h used for strict and secuirty feature 
+
+
+
+in web.api 
+Route::post('create-user' ,[UserController::class,'createUser']);
+
+create new controller api 
+create function to do the operations code to create the apis
+check api in postman  
+
+mainly post request data submit karne ke liye 
+get data retrive karne ke liye 
+
+
+for error handling use try and catch block 
+
+authentication and security => koi api h jo app normally use kar raahe ho leekin koi apis ke liye appko login karna padta h 
+
+to ye use karne ke liye hum use karte h laravel passport ko : 
+
+steps : 
+1 ) install passport 
+1 composer require laravel/laravel 
+2 add in require object of composer.json: "laravel/passport" : and then run "composer update"
+
+2 ) install auth 
+composer require laravel/ui /composer require laravel/ui "^2.0"
+php artisan ui vue --auth 
+
+3 ) set up passport 
+php artisan migrate
+php artisan passport:install 
+
+4 ) configure passport 
+passport::routes() 
+
+
+

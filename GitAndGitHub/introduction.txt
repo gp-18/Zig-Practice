@@ -1,0 +1,52 @@
+what is git and github ?
+git version control h 
+github platform h jo git ke saath deal karta h aur manage karta h microsoft ne develop kiya h github ko.
+
+git appne system m hona chhaiye 
+to check git in our system in cmd : git --version
+ab git ko config karna padta h : global and local mostly hum global ke saath hi deal karte h isslye in cmd : git config --global user.name "firstName LastName "
+in cmd : git config --global user.email "email id"
+
+git hamesha 2 jagha deal karta h local and remote 
+local means ke appka computer 
+remote means ke github
+
+so git m stages hoti h different different 
+add commit modified unmodified 
+
+appne folder ko github p daalne ke liye : 
+git init 
+
+git add 
+
+git commit -m " commit ka message "
+by default master branch hi hoti h par master suit nhi hota h isslye github m name change hoga h to uske liye
+
+git branch -M main ( idher master ka nam main m change hogyaa h so ye syntax branch ka name change karne ke liye kaam m aata h )\
+
+git push origin main (ye main syntax h par jab pata h ki sab origin main m hi jaayega to short form karna ke liye ke baar git push -u origin main iske baad agar git push karege to direct push ho jaayega )
+
+ye ek way m jo ki professional nhi h to professional way h ki phele github par repo create ho phir vo clone ho so to do so : 
+git clone Https link copy paste kar dene ka 
+
+ab git jo h vo different branches ke saath deal karta h 
+to create branch : git checkout -b branchName 
+to change branch : git checkout branchName
+to delete branch : git branch -d branchName 
+
+ab 2 branch h to usko merge karna ho to 2 ways hote h 
+way 1 : github se 
+Pull request daalna appka jo senior hoga vo dhekga pull reqest agar saahi laga to vo accept karke merge kar dega 
+
+way 2 : git se 
+git diff branchName ( ye 2 branch ke beech difference baatne ke liye kaam m aata h )
+git merge branchName 
+
+merge karte time merge conflicts ka dhyaan rakhna hota h merge conflicts matlab ek hi jagha 2 alag alag file m alag alag code hote h to git confuse ho jaata h ki kounsa code rakhne ka h to ye hota h merge conflicts 
+
+agar remote location p change ho gyaa h lekin local location p change nhi hua to uske remote ke changes local p leke aane ke liye use kaare: git pull branchName 
+
+agar koi file galti se add hogi h to usko vapis reset karne ke liye use kaaro : 
+git reset fileName
+
+

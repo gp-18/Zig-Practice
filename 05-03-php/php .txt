@@ -1,0 +1,270 @@
+php 
+
+normal php 
+php forms 
+advance php 
+database php 
+
+
+normal php 
+
+1) starting with php : <?php ?>
+2) to print in php : echo , print 
+3) php is not case sensitive => case sensitive means Parth and parth are different 
+4) comments : single line comment and multiple line comment 
+5) variables : $nameOfVariable => echo " i love php $nameOfVariable " 
+   to get datatype => var_dump();	
+6) scope of the variable global and local => we use static when we dont want to delete the               variable value after the function is used 
+7) string can work either way : $a = "hello " , $a = 'hello' double quotes can return special character whereas single quote cannot do that 
+example :
+$x = "John";
+echo "Hello $x"; => Hello John 
+
+$x = "John";
+echo 'Hello $x';
+this will return string as it is 
+
+8) casting => 
+example : 
+$a = 5 ; 
+$a = (string) $a ; 
+echo $a ; 
+var_dump($a);
+
+9) constant => define("name" , "value " ); (they are global by default)
+echo name ; 
+
+10) if , if else , if elseif else , shortend if else 
+shortend if : $a = $b < 20  ? "hello" : "bye" ; 
+nested if 
+
+11) switch 
+
+switch(variable) {
+case label:
+break;
+
+default:
+}
+
+12) loops : while loop , do while , for loop , forEach Loop 
+for each 
+$colors = array("red", "green", "blue", "yellow");
+
+foreach ($colors as $x) {
+  echo "$x <br>";
+}
+13) functions :
+
+function myMessage($a , $b){
+return $a * $b ; 
+}
+
+
+php forms 
+
+<html>
+<body>
+
+<form action="welcome.php" method="post">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<input type="submit">
+</form>
+
+</body>
+</html>
+
+in php 
+$name = $_POST["name"]
+$email = $_POST["email"]
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+The htmlspecialchars() function converts special characters to HTML entities. This means that it will replace HTML characters like < and > with &lt; and &gt;.
+
+<?php $_SERVER["REQUEST METHOD "] == POST
+
+
+<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+}
+?>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
+Name: <input type="text" name="name">
+<span class="error">* <?php echo $nameErr;?></span>
+<br><br>
+E-mail:
+<input type="text" name="email">
+<span class="error">* <?php echo $emailErr;?></span>
+<br><br>
+Website:
+<input type="text" name="website">
+<span class="error"><?php echo $websiteErr;?></span>
+<br><br>
+Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+<br><br>
+Gender:
+<input type="radio" name="gender" value="female">Female
+<input type="radio" name="gender" value="male">Male
+<input type="radio" name="gender" value="other">Other
+<span class="error">* <?php echo $genderErr;?></span>
+<br><br>
+<input type="submit" name="submit" value="Submit">
+
+</form>
+
+php advanced 
+
+date and time 
+date :
+d - Represents the day of the month (01 to 31)
+m - Represents a month (01 to 12)
+Y - Represents a year (in four digits)
+l (lowercase 'L') - Represents the day of the week
+
+echo date(d:m:Y)
+
+time : 
+H - 24-hour format of an hour (00 to 23)
+h - 12-hour format of an hour with leading zeros (01 to 12)
+i - Minutes with leading zeros (00 to 59)
+s - Seconds with leading zeros (00 to 59)
+a - Lowercase Ante meridiem and Post meridiem (am or pm)
+echo date(h:i:s:a)
+
+
+require and includes 
+they both work in the same way but one major difference is that when we use includes then at that time when php is not able to find the file it will run rest of the remaning code but this does not go same with the require when it is not able to find the file then it will stop it execution
+
+<html>
+<body>
+
+<h1>Welcome to my home page!</h1>
+<?php include 'noFileExists.php';
+echo "I have a $color $car.";
+?>
+
+</body>
+</html>
+
+
+file 
+
+readfile and fopen => fopen provide better other functions therefore use fopen
+<?php
+echo fopen("webdictionary.txt");
+?>
+
+cookies 
+<?php
+$cookie_name = "user";
+$cookie_value = "John Doe";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+?>
+<html>
+<body>
+
+<?php
+if(!isset($_COOKIE[$cookie_name])) {
+  echo "Cookie named '" . $cookie_name . "' is not set!";
+} else {
+  echo "Cookie '" . $cookie_name . "' is set!<br>";
+  echo "Value is: " . $_COOKIE[$cookie_name];
+}
+?>
+
+</body>
+</html>
+
+sessions : 
+<?php
+// Start the session
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// Set session variables
+$_SESSION["favcolor"] = "green";
+$_SESSION["favanimal"] = "cat";
+echo "Session variables are set.";
+?>
+
+</body>
+</html>
+
+
+php database
+Both MySQLi(i = improved ) and PDO(php data object) have their advantages:
+PDO will work on 12 different database systems, whereas MySQLi will only work with MySQL databases.
+Both support Prepared Statements. Prepared Statements protect from SQL injection, and are very important for web application security.
+
+connect : 
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = myDB;
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+?>
+
+create db :
+<?php 
+$servername = "localhost"
+$username = "username"
+$password = "password"
+
+try{
+ $conn = new PDO("mysql:host=$servername", $username, $password);
+ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ $sql = "CREATE DATABASE MYDB "
+ $conn->exec($sql)
+ echo "Database created successfully<br>";
+}catch(PDOException $e){
+ echo $sql . "<br>" . $e->getMessage();
+}
+
